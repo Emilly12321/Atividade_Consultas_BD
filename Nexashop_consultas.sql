@@ -274,6 +274,7 @@ use ecommerce_nexashop;
 SELECT clientes.cidade, SUM(pedidos.valor_total) AS faturamento
 FROM clientes
 JOIN pedidos ON clientes.id = pedidos.cliente_id /*pega somente os IDs que forem iguais entre as duas tabelas*/
+where pedidos.status = 'Aprovado'
 GROUP BY clientes.cidade
 ORDER BY faturamento DESC;
 
